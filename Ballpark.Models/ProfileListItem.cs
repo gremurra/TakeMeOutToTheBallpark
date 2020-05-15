@@ -13,7 +13,7 @@ namespace Ballpark.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Display(Name = "Favorite Team")]
+        [Display(Name = "Favorite Team(s)")]
         public string FavTeam { get; set; }
         [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }

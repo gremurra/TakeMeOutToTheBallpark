@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProfileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ballpark.Data\Ballpark.Data.csproj">
+      <Project>{b4ca9ca8-93a6-499b-96f9-e422b87ff264}</Project>
+      <Name>Ballpark.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ballpark.Models\Ballpark.Models.csproj">
+      <Project>{60b486f5-2fbe-4a9a-b58d-bb59980386ca}</Project>
+      <Name>Ballpark.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
