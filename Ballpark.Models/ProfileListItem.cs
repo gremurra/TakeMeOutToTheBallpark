@@ -5,19 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ballpark.Data
+namespace Ballpark.Models
 {
-    public class Profile
+    public class ProfileListItem
     {
-        [Key]
-        public int ProfileID { get; set; }
-        [Required]
-        public Guid OwnerID { get; set; }
-        [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Favorite Team")]
         public string FavTeam { get; set; }
+        [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

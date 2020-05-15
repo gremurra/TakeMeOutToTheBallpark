@@ -5,19 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ballpark.Data
+namespace Ballpark.Models
 {
-    public class Profile
+    public class ProfileCreate
     {
-        [Key]
-        public int ProfileID { get; set; }
         [Required]
-        public Guid OwnerID { get; set; }
-        [Required]
+        [Display(Name = "First Name")]
+        [MaxLength(50, ErrorMessage ="There are too many characters in this field.")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "Last Name")]
+        [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string LastName { get; set; }
+        [Display(Name = "Favorite Team(s)")]
         public string FavTeam { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
