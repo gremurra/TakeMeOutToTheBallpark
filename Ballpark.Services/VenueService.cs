@@ -57,5 +57,26 @@ namespace Ballpark.Services
                 return query.ToArray();
             }
         }
+
+        public VenueDetail GetVenueByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                ctx
+                    .Venues
+                    .Single(e => e.VenueID == id);
+                return
+                    new VenueDetail
+                    {
+                        VenueID = entity.VenueID,
+                        VenueName = entity.VenueName,
+                        Location = entity.Location,
+                        YearOpened = entity.YearOpened,
+                        Capacity = entity.Capacity,
+                        IsActive = entity.IsActive
+                    };
+            }
+        }
     }
 }

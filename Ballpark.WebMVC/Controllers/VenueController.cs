@@ -31,16 +31,32 @@ namespace Ballpark.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(VenueCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateVenueService();
+
+            if (service.CreateVenue(model))
             {
-                return View(model);
-            }
+                TempData["SaveResult"] = "Your venue was created.";
+                return RedirectToAction("Index");
+            };
 
-            var service = new VenueService();
+            ModelState.AddModelError("", "Venue could not be created.");
 
-            service.CreateVenue(model);
+            return View(model);
+        }
 
-            return RedirectToAction("Index");
+        public ActionResult Details (int id)
+        {
+            var svc = CreateVenueService();
+            var model = svc.GetVenueByID(id);
+
+            return View(model);
+        }
+
+        private static VenueService CreateVenueService()
+        {
+            return new VenueService();
         }
     }
 }
