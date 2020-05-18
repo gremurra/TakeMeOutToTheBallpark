@@ -58,6 +58,45 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateProfileService();
+            var detail = service.GetProfileByID(id);
+            var model =
+                new ProfileEdit
+                {
+                    ProfileID = detail.ProfileID,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    FavTeam = detail.FavTeam
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ProfileEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ProfileID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateProfileService();
+
+            if (service.UpdateProfile(model))
+            {
+                TempData["SaveResult"] = "Your profile was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your profile could not be updated.");
+            return View(model);
+        }
+
         private ProfileService CreateProfileService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());

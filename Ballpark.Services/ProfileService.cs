@@ -48,6 +48,7 @@ namespace Ballpark.Services
                         e =>
                         new ProfileListItem
                         {
+                            ProfileID = e.ProfileID,
                             FirstName = e.FirstName,
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
@@ -76,6 +77,23 @@ namespace Ballpark.Services
                         FavTeam = entity.FavTeam,
                         CreatedUtc = entity.CreatedUtc
                     };
+            }
+        }
+
+        public bool UpdateProfile(ProfileEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Profiles
+                    .Single(e => e.ProfileID == model.ProfileID && e.OwnerID == _userId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.FavTeam = model.FavTeam;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
