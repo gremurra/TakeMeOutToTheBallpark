@@ -73,5 +73,38 @@ namespace Ballpark.Services
                     };
             }
         }
+
+        public bool UpdateTeam(TeamEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Teams
+                    .Single(e => e.TeamID == model.TeamID);
+
+                entity.TeamName = model.TeamName;
+                entity.Sport = model.Sport;
+                entity.Location = model.Location;
+                entity.VenueID = model.VenueID;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteTeam(int teamID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Teams
+                    .Single(e => e.TeamID == teamID);
+
+                ctx.Teams.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

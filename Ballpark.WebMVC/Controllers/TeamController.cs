@@ -53,6 +53,69 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit (int id)
+        {
+            var service = CreateTeamService();
+            var detail = service.GetTeamByID(id);
+            var model =
+                new TeamEdit
+                {
+                    TeamID = detail.TeamID,
+                    TeamName = detail.TeamName,
+                    Sport = detail.Sport,
+                    Location = detail.Location,
+                    VenueID = detail.VenueID
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TeamEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.TeamID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTeamService();
+
+            if (service.UpdateTeam(model))
+            {
+                TempData["SaveResult"] = "Your team was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your team could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete (int id)
+        {
+            var svc = CreateTeamService();
+            var model = svc.GetTeamByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost (int id)
+        {
+            var service = CreateTeamService();
+
+            service.DeleteTeam(id);
+
+            TempData["SaveResult"] = "Your team was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private static TeamService CreateTeamService()
         {
             return new TeamService();
