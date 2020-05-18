@@ -98,5 +98,20 @@ namespace Ballpark.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteVenue(int venueID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Venues
+                    .Single(e => e.VenueID == venueID);
+
+                ctx.Venues.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -72,6 +72,53 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, VenueEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.VenueID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateVenueService();
+
+            if (service.UpdateVenue(model))
+            {
+                TempData["SaveResult"] = "Your venue was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your venue could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateVenueService();
+            var model = svc.GetVenueByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateVenueService();
+
+            service.DeleteVenue(id);
+
+            TempData["SaveResult"] = "Your venue was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private static VenueService CreateVenueService()
         {
             return new VenueService();
