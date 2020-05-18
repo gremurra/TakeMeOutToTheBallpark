@@ -1,4 +1,5 @@
 ﻿using Ballpark.Models.Team;
+using Ballpark.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Team
         public ActionResult Index()
         {
-            var model = new TeamListItem[0];
+            var service = new TeamService();
+            var model = service.GetTeams();
             return View(model);
         }
 
@@ -26,13 +28,24 @@ namespace Ballpark.WebMVC.Controllers
         //POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create (TeamCreate model)
+        public ActionResult Create(TeamCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateTeamService();
+            {
+                TempData["SaveResult"] = "Your team was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Team could not be created.");
+
             return View(model);
+        }
+
+        private static TeamService CreateTeamService()
+        {
+            return new TeamService();
         }
     }
 }
