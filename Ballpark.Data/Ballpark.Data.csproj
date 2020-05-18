@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202005151411371_ProfileDateTimeMigration.Designer.cs">
       <DependentUpon>202005151411371_ProfileDateTimeMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005181521321_VenueMigration.cs" />
+    <Compile Include="Migrations\202005181521321_VenueMigration.Designer.cs">
+      <DependentUpon>202005181521321_VenueMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005151411371_ProfileDateTimeMigration.resx">
       <DependentUpon>202005151411371_ProfileDateTimeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005181521321_VenueMigration.resx">
+      <DependentUpon>202005181521321_VenueMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

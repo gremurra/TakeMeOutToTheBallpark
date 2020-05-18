@@ -59,6 +59,7 @@
     <Compile Include="Profile\ProfileEdit.cs" />
     <Compile Include="Profile\ProfileListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Venue\VenueCreate.cs" />
     <Compile Include="Venue\VenueListItem.cs" />
   </ItemGroup>
   <ItemGroup>
