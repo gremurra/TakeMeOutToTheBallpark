@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Ballpark.Models
 {
-    public class ProfileListItem
+    public class ProfileDetail
     {
+        [Display(Name = "Profile ID Number")]
         public int ProfileID { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

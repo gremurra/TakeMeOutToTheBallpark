@@ -50,6 +50,14 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateProfileService();
+            var model = svc.GetProfileByID(id);
+
+            return View(model);
+        }
+
         private ProfileService CreateProfileService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());

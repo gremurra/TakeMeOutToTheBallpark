@@ -58,5 +58,25 @@ namespace Ballpark.Services
                 return query.ToArray();
             }
         }
+
+        public ProfileDetail GetProfileByID (int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Profiles
+                    .Single(e => e.ProfileID == id && e.OwnerID == _userId);
+                return
+                    new ProfileDetail
+                    {
+                        ProfileID = entity.ProfileID,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        FavTeam = entity.FavTeam,
+                        CreatedUtc = entity.CreatedUtc
+                    };
+            }
+        }
     }
 }
