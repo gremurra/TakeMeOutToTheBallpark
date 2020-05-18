@@ -96,5 +96,20 @@ namespace Ballpark.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteProfile(int profileID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Profiles
+                    .Single(e => e.ProfileID == profileID && e.OwnerID == _userId);
+
+                ctx.Profiles.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

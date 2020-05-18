@@ -97,6 +97,28 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateProfileService();
+            var model = svc.GetProfileByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateProfileService();
+
+            service.DeleteProfile(id);
+
+            TempData["SaveResult"] = "Your profile was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private ProfileService CreateProfileService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
