@@ -1,4 +1,5 @@
 ﻿using Ballpark.Models.Venue;
+using Ballpark.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +14,33 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Venue
         public ActionResult Index()
         {
-            var model = new VenueListItem[0];
+            var service = new VenueService();
+            var model = service.GetVenues();
             return View(model);
         }
 
+        //GET: Create
         public ActionResult Create()
         {
             return View();
         }
 
+
+        //POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(VenueCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var service = new VenueService();
+
+            service.CreateVenue(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
