@@ -250,6 +250,7 @@
     <Content Include="Views\Venue\Delete.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\Team\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

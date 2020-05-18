@@ -33,12 +33,22 @@ namespace Ballpark.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateTeamService();
+
+            if (service.CreateTeam(model))
             {
                 TempData["SaveResult"] = "Your team was created.";
                 return RedirectToAction("Index");
             };
 
             ModelState.AddModelError("", "Team could not be created.");
+
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateTeamService();
+            var model = svc.GetTeamByID(id);
 
             return View(model);
         }

@@ -53,5 +53,25 @@ namespace Ballpark.Services
                 return query.ToArray();
             }
         }
+
+        public TeamDetail GetTeamByID (int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Teams
+                    .Single(e => e.TeamID == id);
+                return
+                    new TeamDetail
+                    {
+                        TeamID = entity.TeamID,
+                        TeamName = entity.TeamName,
+                        Sport = entity.Sport,
+                        Location = entity.Location,
+                        VenueID = entity.VenueID
+                    };
+            }
+        }
     }
 }
