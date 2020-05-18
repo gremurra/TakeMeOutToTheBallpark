@@ -46,11 +46,29 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        //Get: DETAILS
         public ActionResult Details (int id)
         {
             var svc = CreateVenueService();
             var model = svc.GetVenueByID(id);
 
+            return View(model);
+        }
+
+        public ActionResult Edit (int id)
+        {
+            var service = CreateVenueService();
+            var detail = service.GetVenueByID(id);
+            var model =
+                new VenueEdit
+                {
+                    VenueID = detail.VenueID,
+                    VenueName = detail.VenueName,
+                    Location = detail.Location,
+                    YearOpened = detail.YearOpened,
+                    Capacity = detail.Capacity,
+                    IsActive = detail.IsActive
+                };
             return View(model);
         }
 

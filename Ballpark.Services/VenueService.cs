@@ -78,5 +78,25 @@ namespace Ballpark.Services
                     };
             }
         }
+
+        public bool UpdateVenue(VenueEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Venues
+                    .Single(e => e.VenueID == model.VenueID);
+
+                entity.VenueID = model.VenueID;
+                entity.VenueName = model.VenueName;
+                entity.Location = model.Location;
+                entity.YearOpened = model.YearOpened;
+                entity.Capacity = model.Capacity;
+                entity.IsActive = model.IsActive;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace Ballpark.Models
 {
     public class ProfileListItem
     {
+        [Display(Name = "Profile ID Number")]
         public int ProfileID { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
