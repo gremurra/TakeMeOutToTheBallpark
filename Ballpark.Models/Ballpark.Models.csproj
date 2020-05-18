@@ -59,6 +59,7 @@
     <Compile Include="Profile\ProfileEdit.cs" />
     <Compile Include="Profile\ProfileListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Team\TeamListItem.cs" />
     <Compile Include="Venue\VenueCreate.cs" />
     <Compile Include="Venue\VenueDetail.cs" />
     <Compile Include="Venue\VenueEdit.cs" />
@@ -67,6 +68,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ballpark.Data\Ballpark.Data.csproj">
+      <Project>{B4CA9CA8-93A6-499B-96F9-E422B87FF264}</Project>
+      <Name>Ballpark.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -75,9 +75,14 @@
     <Compile Include="Migrations\202005181603251_VenueDBSetMigration.Designer.cs">
       <DependentUpon>202005181603251_VenueDBSetMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005181840124_TeamMigration.cs" />
+    <Compile Include="Migrations\202005181840124_TeamMigration.Designer.cs">
+      <DependentUpon>202005181840124_TeamMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Team.cs" />
     <Compile Include="Venue.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005181603251_VenueDBSetMigration.resx">
       <DependentUpon>202005181603251_VenueDBSetMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005181840124_TeamMigration.resx">
+      <DependentUpon>202005181840124_TeamMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
