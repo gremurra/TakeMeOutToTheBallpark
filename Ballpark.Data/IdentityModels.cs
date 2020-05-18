@@ -33,6 +33,7 @@ namespace Ballpark.Data
         }
 
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Venue> Venues { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
