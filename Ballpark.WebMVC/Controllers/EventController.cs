@@ -1,4 +1,5 @@
 ﻿using Ballpark.Models.Event;
+using Ballpark.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var model = new EventListItem[0];
+            var service = new EventService();
+            var model = service.GetEvents();
             return View(model);
         }
 
@@ -27,11 +29,16 @@ namespace Ballpark.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var service = new EventService();
+
+            service.CreateEvent(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

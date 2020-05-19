@@ -7,13 +7,13 @@ namespace Ballpark.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class FourDataTableMigration : IMigrationMetadata
+    public sealed partial class NewFirstMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FourDataTableMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewFirstMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005191336388_FourDataTableMigration"; }
+            get { return "202005191440581_NewFirstMigration"; }
         }
         
         string IMigrationMetadata.Source

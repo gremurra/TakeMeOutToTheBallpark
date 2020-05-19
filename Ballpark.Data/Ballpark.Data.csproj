@@ -56,9 +56,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202005191336388_FourDataTableMigration.cs" />
-    <Compile Include="Migrations\202005191336388_FourDataTableMigration.Designer.cs">
-      <DependentUpon>202005191336388_FourDataTableMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005191440581_NewFirstMigration.cs" />
+    <Compile Include="Migrations\202005191440581_NewFirstMigration.Designer.cs">
+      <DependentUpon>202005191440581_NewFirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
@@ -71,8 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005191336388_FourDataTableMigration.resx">
-      <DependentUpon>202005191336388_FourDataTableMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005191440581_NewFirstMigration.resx">
+      <DependentUpon>202005191440581_NewFirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

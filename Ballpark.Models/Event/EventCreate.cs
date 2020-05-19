@@ -14,7 +14,7 @@ namespace Ballpark.Models.Event
         [Required]
         public string VenueName { get; set; }
         [Required]
-        public int TeamName { get; set; }
+        public string TeamName { get; set; }
         [Required]
         public string AwayTeam { get; set; }
         [Required]
