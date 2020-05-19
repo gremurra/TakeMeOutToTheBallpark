@@ -56,29 +56,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202005142040071_InitialCreate.cs" />
-    <Compile Include="Migrations\202005142040071_InitialCreate.Designer.cs">
-      <DependentUpon>202005142040071_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005142048203_InitialMigration.cs" />
-    <Compile Include="Migrations\202005142048203_InitialMigration.Designer.cs">
-      <DependentUpon>202005142048203_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005151411371_ProfileDateTimeMigration.cs" />
-    <Compile Include="Migrations\202005151411371_ProfileDateTimeMigration.Designer.cs">
-      <DependentUpon>202005151411371_ProfileDateTimeMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005181521321_VenueMigration.cs" />
-    <Compile Include="Migrations\202005181521321_VenueMigration.Designer.cs">
-      <DependentUpon>202005181521321_VenueMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005181603251_VenueDBSetMigration.cs" />
-    <Compile Include="Migrations\202005181603251_VenueDBSetMigration.Designer.cs">
-      <DependentUpon>202005181603251_VenueDBSetMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005181840124_TeamMigration.cs" />
-    <Compile Include="Migrations\202005181840124_TeamMigration.Designer.cs">
-      <DependentUpon>202005181840124_TeamMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005191336388_FourDataTableMigration.cs" />
+    <Compile Include="Migrations\202005191336388_FourDataTableMigration.Designer.cs">
+      <DependentUpon>202005191336388_FourDataTableMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
@@ -91,23 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005142040071_InitialCreate.resx">
-      <DependentUpon>202005142040071_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005142048203_InitialMigration.resx">
-      <DependentUpon>202005142048203_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005151411371_ProfileDateTimeMigration.resx">
-      <DependentUpon>202005151411371_ProfileDateTimeMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005181521321_VenueMigration.resx">
-      <DependentUpon>202005181521321_VenueMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005181603251_VenueDBSetMigration.resx">
-      <DependentUpon>202005181603251_VenueDBSetMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005181840124_TeamMigration.resx">
-      <DependentUpon>202005181840124_TeamMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005191336388_FourDataTableMigration.resx">
+      <DependentUpon>202005191336388_FourDataTableMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

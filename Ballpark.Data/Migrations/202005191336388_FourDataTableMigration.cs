@@ -3,10 +3,29 @@ namespace Ballpark.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class FourDataTableMigration : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Event",
+                c => new
+                    {
+                        EventID = c.Int(nullable: false, identity: true),
+                        ProfileID = c.Int(nullable: false),
+                        DateOfGame = c.DateTimeOffset(nullable: false, precision: 7),
+                        VenueID = c.Int(nullable: false),
+                        TeamID = c.Int(nullable: false),
+                        AwayTeam = c.String(nullable: false),
+                        Result = c.String(nullable: false),
+                        Comments = c.String(),
+                    })
+                .PrimaryKey(t => t.EventID)
+                .ForeignKey("dbo.Profile", t => t.ProfileID, cascadeDelete: true)
+                .ForeignKey("dbo.Team", t => t.TeamID, cascadeDelete: true)
+                .Index(t => t.ProfileID)
+                .Index(t => t.TeamID);
+            
             CreateTable(
                 "dbo.Profile",
                 c => new
@@ -16,8 +35,36 @@ namespace Ballpark.Data.Migrations
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
                         FavTeam = c.String(),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                     })
                 .PrimaryKey(t => t.ProfileID);
+            
+            CreateTable(
+                "dbo.Team",
+                c => new
+                    {
+                        TeamID = c.Int(nullable: false, identity: true),
+                        TeamName = c.String(nullable: false),
+                        Sport = c.Int(nullable: false),
+                        Location = c.String(nullable: false),
+                        VenueID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.TeamID)
+                .ForeignKey("dbo.Venue", t => t.VenueID, cascadeDelete: true)
+                .Index(t => t.VenueID);
+            
+            CreateTable(
+                "dbo.Venue",
+                c => new
+                    {
+                        VenueID = c.Int(nullable: false, identity: true),
+                        VenueName = c.String(nullable: false),
+                        Location = c.String(nullable: false),
+                        YearOpened = c.Int(nullable: false),
+                        Capacity = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.VenueID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -97,16 +144,25 @@ namespace Ballpark.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Event", "TeamID", "dbo.Team");
+            DropForeignKey("dbo.Team", "VenueID", "dbo.Venue");
+            DropForeignKey("dbo.Event", "ProfileID", "dbo.Profile");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Team", new[] { "VenueID" });
+            DropIndex("dbo.Event", new[] { "TeamID" });
+            DropIndex("dbo.Event", new[] { "ProfileID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Venue");
+            DropTable("dbo.Team");
             DropTable("dbo.Profile");
+            DropTable("dbo.Event");
         }
     }
 }

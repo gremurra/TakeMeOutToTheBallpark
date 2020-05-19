@@ -10,7 +10,6 @@ namespace Ballpark.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Ballpark.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Ballpark.Data.ApplicationDbContext context)
