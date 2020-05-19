@@ -13,6 +13,7 @@ namespace Ballpark.Models.Event
         public int ProfileID { get; set; }
         [Required]
         [Display(Name = "Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTimeOffset DateOfGame { get; set; }
         [Required]
         [Display(Name = "Venue")]
