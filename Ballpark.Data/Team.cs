@@ -21,6 +21,7 @@ namespace Ballpark.Data
         public string Location { get; set; }
         [Required]
         public int VenueID { get; set; }
+        public string VenueName { get; set; }
         [ForeignKey(nameof(VenueID))]
         public virtual Venue Venue { get; set; }
     }

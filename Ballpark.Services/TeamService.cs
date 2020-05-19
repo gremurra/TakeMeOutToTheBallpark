@@ -23,7 +23,8 @@ namespace Ballpark.Services
                     TeamName = model.TeamName,
                     Sport = model.Sport,
                     Location = model.Location,
-                    VenueID = model.VenueID
+                    VenueID = model.VenueID,
+                    VenueName = model.VenueName
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -46,7 +47,8 @@ namespace Ballpark.Services
                         {
                             TeamID = e.TeamID,
                             TeamName = e.TeamName,
-                            Sport = e.Sport
+                            Sport = e.Sport,
+                            VenueName = e.VenueName
                         }
                         );
 
@@ -69,7 +71,7 @@ namespace Ballpark.Services
                         TeamName = entity.TeamName,
                         Sport = entity.Sport,
                         Location = entity.Location,
-                        VenueID = entity.VenueID,
+                        VenueName = entity.VenueName,
                     };
             }
         }
@@ -87,6 +89,7 @@ namespace Ballpark.Services
                 entity.Sport = model.Sport;
                 entity.Location = model.Location;
                 entity.VenueID = model.VenueID;
+                entity.VenueName = model.VenueName;
 
                 return ctx.SaveChanges() == 1;
             }
