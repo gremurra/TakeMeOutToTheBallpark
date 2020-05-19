@@ -69,7 +69,7 @@ namespace Ballpark.Services
                         TeamName = entity.TeamName,
                         Sport = entity.Sport,
                         Location = entity.Location,
-                        VenueID = entity.VenueID
+                        VenueID = entity.VenueID,
                     };
             }
         }

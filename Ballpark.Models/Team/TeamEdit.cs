@@ -16,7 +16,9 @@ namespace Ballpark.Models.Team
         public string TeamName { get; set; }
         public Sport Sport { get; set; }
         public string Location { get; set; }
-        [Display(Name = "Home Venue")]
+        [Display(Name = "Venue ID")]
         public int VenueID { get; set; }
+        [Display(Name = "Home Venue")]
+        public string VenueName { get; set; }
     }
 }

@@ -18,6 +18,8 @@ namespace Ballpark.Models.Team
         public string Location { get; set; }
         [Display(Name = "Home Venue Number")]
         public int VenueID { get; set; }
+        [Display(Name = "Home Venue")]
+        public string VenueName { get; set; }
 
     }
 }
