@@ -15,13 +15,15 @@ namespace Ballpark.Services
         {
         }
 
-        public bool CreateEvent(EventCreate model)     //creates the instance of Note
+        public bool CreateEvent(EventCreate model)     //creates the instance of Event
         {
             var entity =
                 new Event()
                 {
+                    ProfileID = model.ProfileID,
                     DateOfGame = model.DateOfGame,
                     VenueName = model.VenueName,
+                    TeamID = model.TeamID,
                     TeamName = model.TeamName,
                     AwayTeam = model.AwayTeam,
                     Result = model.Result,
@@ -56,6 +58,63 @@ namespace Ballpark.Services
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        public EventDetail GetEventByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Events
+                    .Single(e => e.EventID == id);
+                return
+                    new EventDetail
+                    {
+                        EventID = entity.EventID,
+                        DateOfGame = entity.DateOfGame,
+                        VenueName = entity.VenueName,
+                        TeamName = entity.TeamName,
+                        AwayTeam = entity.AwayTeam,
+                        Result = entity.Result,
+                        Comments = entity.Comments
+                    };
+            }
+        }
+
+        public bool UpdateEvent(EventEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Events
+                    .Single(e => e.EventID == model.EventID);
+
+                entity.DateOfGame = model.DateOfGame;
+                entity.VenueName = model.VenueName;
+                entity.TeamName = model.TeamName;
+                entity.AwayTeam = model.AwayTeam;
+                entity.Result = model.Result;
+                entity.Comments = model.Comments;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteEvent (int eventID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Events
+                    .Single(e => e.EventID == eventID);
+
+                ctx.Events.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

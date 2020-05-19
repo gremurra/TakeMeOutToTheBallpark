@@ -29,16 +29,97 @@ namespace Ballpark.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateEventService();
+
+            if (service.CreateEvent(model))
             {
+                TempData["SaveResult"] = "Your event was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Event could not be created.");
+
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateEventService();
+            var model = svc.GetEventByID(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateEventService();
+            var detail = service.GetEventByID(id);
+            var model =
+                new EventEdit
+                {
+                    EventID = detail.EventID,
+                    DateOfGame = detail.DateOfGame,
+                    VenueName = detail.VenueName,
+                    TeamName = detail.TeamName,
+                    AwayTeam = detail.AwayTeam,
+                    Result = detail.Result,
+                    Comments = detail.Comments
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit (int id, EventEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.EventID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
                 return View(model);
             }
 
-            var service = new EventService();
+            var service = CreateEventService();
 
-            service.CreateEvent(model);
+            if (service.UpdateEvent(model))
+            {
+                TempData["SaveResult"] = "Your event was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your event could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateEventService();
+            var model = svc.GetEventByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateEventService();
+
+            service.DeleteEvent(id);
+
+            TempData["SaveResult"] = "Your event was deleted.";
 
             return RedirectToAction("Index");
+        }
+
+        private static EventService CreateEventService()
+        {
+            return new EventService();
         }
     }
 }

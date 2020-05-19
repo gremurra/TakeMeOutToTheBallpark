@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ballpark.Models.Event
 {
-    public class EventListItem
+    public class EventEdit
     {
         [Display(Name = "Event ID Number")]
         public int EventID { get; set; }
@@ -20,5 +20,7 @@ namespace Ballpark.Models.Event
         [Display(Name = "Away Team")]
         public string AwayTeam { get; set; }
         public string Result { get; set; }
+        public string Comments { get; set; }
+
     }
 }
