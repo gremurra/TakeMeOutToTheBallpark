@@ -64,6 +64,14 @@
     <Compile Include="Migrations\202005191828010_VenueNameMigration.Designer.cs">
       <DependentUpon>202005191828010_VenueNameMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005202044087_VenueIDMigration.cs" />
+    <Compile Include="Migrations\202005202044087_VenueIDMigration.Designer.cs">
+      <DependentUpon>202005202044087_VenueIDMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005202238072_UpdateMigration.cs" />
+    <Compile Include="Migrations\202005202238072_UpdateMigration.Designer.cs">
+      <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +88,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005191828010_VenueNameMigration.resx">
       <DependentUpon>202005191828010_VenueNameMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005202044087_VenueIDMigration.resx">
+      <DependentUpon>202005202044087_VenueIDMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005202238072_UpdateMigration.resx">
+      <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -74,7 +74,7 @@ namespace Ballpark.Services
                         Location = entity.Location,
                         YearOpened = entity.YearOpened,
                         Capacity = entity.Capacity,
-                        IsActive = entity.IsActive
+                        IsActive = entity.IsActive,
                     };
             }
         }

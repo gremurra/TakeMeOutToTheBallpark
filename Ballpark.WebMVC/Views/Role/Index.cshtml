@@ -3,7 +3,7 @@
         ViewBag.Title = "Index";
     }
 
-<h2>Roles Listing</h2>
+<h2>List of Roles</h2>
 
 @Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUsers")
 <hr />
@@ -12,7 +12,7 @@
     {
         <p>
             <strong>@role.Name | </strong>
-            <span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
+            <span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="delLink">Delete</a></span> |
             @Html.ActionLink("Edit", "Edit", new { roleName = @role.Name})
         </p>
     }

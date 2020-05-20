@@ -4,19 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>My Profile</h2>
 
 <div>
-    <h4>ProfileDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileID)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -48,6 +40,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalGames)
         </dd>
 
     </dl>

@@ -27,6 +27,7 @@
                         <li>@Html.ActionLink("Venue List", "Index", "Venue")</li>
                         <li>@Html.ActionLink("Team List", "Index", "Team")</li>
                         <li>@Html.ActionLink("Event List", "Index", "Event")</li>
+                        <li>@Html.ActionLink("Roles", "Index", "Role")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -43,6 +44,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+   
     @RenderSection("scripts", required: false)
 </body>
 </html>

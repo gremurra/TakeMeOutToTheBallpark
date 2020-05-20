@@ -12,24 +12,32 @@ namespace Ballpark.Data
     {
         [Key]
         public int EventID { get; set; }
+
         [Required]
         public int ProfileID { get; set; }
-        [Required]
-        public DateTimeOffset DateOfGame { get; set; }
-        [Required]
-        public string VenueName { get; set; }
-        [Required]
-        public int TeamID { get; set; }
-        [Required]
-        public string TeamName { get; set; }
-        [Required]
-        public string AwayTeam { get; set; }
-        [Required]
-        public string Result { get; set; }
-        public string Comments { get; set; }
         [ForeignKey(nameof(ProfileID))]
         public virtual Profile Profile { get; set; }
+
+        [Required]
+        public DateTimeOffset DateOfGame { get; set; }
+
+        [Required]
+        public string VenueName { get; set; }
+
         [ForeignKey(nameof(TeamID))]
         public virtual Team Team { get; set; }
+        [Required]
+        public int TeamID { get; set; }
+
+        [Required]
+        public string TeamName { get; set; }
+
+        [Required]
+        public string AwayTeam { get; set; }
+
+        [Required]
+        public string Result { get; set; }
+
+        public string Comments { get; set; }
     }
 }

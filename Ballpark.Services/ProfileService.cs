@@ -52,7 +52,8 @@ namespace Ballpark.Services
                             FirstName = e.FirstName,
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            //TotalGames = e.TotalGames
                         }
                         );
 
@@ -75,7 +76,8 @@ namespace Ballpark.Services
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
                         FavTeam = entity.FavTeam,
-                        CreatedUtc = entity.CreatedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        //TotalGames = entity.TotalGames
                     };
             }
         }

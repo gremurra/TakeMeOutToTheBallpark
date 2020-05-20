@@ -11,13 +11,22 @@ namespace Ballpark.Data
     {
         [Key]
         public int ProfileID { get; set; }
+
         [Required]
         public Guid OwnerID { get; set; }
+
         [Required]
         public string FirstName { get; set; }
+
         [Required]
         public string LastName { get; set; }
+
         public string FavTeam { get; set; }
+
         public DateTimeOffset CreatedUtc { get; set; }
+
+        //public int TotalGames { get { return Events.Count; } }
+
+        //public virtual List<Event> Events { get; set; } = new List<Event>();
     }
 }

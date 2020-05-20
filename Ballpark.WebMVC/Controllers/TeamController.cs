@@ -62,9 +62,8 @@ namespace Ballpark.WebMVC.Controllers
                 {
                     TeamID = detail.TeamID,
                     TeamName = detail.TeamName,
-                    Sport = detail.Sport,
                     Location = detail.Location,
-                    VenueName = detail.VenueName
+                    VenueID = detail.VenueID
                 };
             return View(model);
         }

@@ -22,5 +22,7 @@ namespace Ballpark.Data
         [Required]
         public bool IsActive { get; set; }
 
+        //public bool HasVisited { get; set; }
+
     }
 }

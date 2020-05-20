@@ -9,8 +9,11 @@ namespace Ballpark.Models
     public class ProfileEdit
     {
         public int ProfileID { get; set; }
+
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         public string FavTeam { get; set; }
     }
 }

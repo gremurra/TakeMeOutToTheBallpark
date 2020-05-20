@@ -11,14 +11,22 @@ namespace Ballpark.Models.Venue
     {
         [Display(Name = "Venue ID")]
         public int VenueID { get; set; }
+
         [Display(Name = "Name")]
         public string VenueName { get; set; }
+
         [Display(Name = "Location")]
         public string Location { get; set; }
+
         [Display(Name = "Opened")]
         public int YearOpened { get; set; }
+
         public int Capacity { get; set; }
+
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
+
+        //[Display(Name = "Visited")]
+        //public bool HasVisited { get; set; }
     }
 }

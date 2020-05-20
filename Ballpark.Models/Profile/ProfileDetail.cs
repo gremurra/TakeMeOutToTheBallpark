@@ -11,13 +11,19 @@ namespace Ballpark.Models
     {
         [Display(Name = "Profile ID Number")]
         public int ProfileID { get; set; }
+
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Display(Name = "Favorite Team(s)")]
         public string FavTeam { get; set; }
+
         [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public int TotalGames { get; set; }
     }
 }

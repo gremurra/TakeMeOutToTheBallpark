@@ -12,9 +12,10 @@ namespace Ballpark.Models.Team
     {
         [Display(Name = "Team ID Number")]
         public int TeamID { get; set; }
+
         [Display(Name = "Team Name")]
         public string TeamName { get; set; }
-        public Sport Sport { get; set; }
+
         public string VenueName { get; set; }
     }
 }
