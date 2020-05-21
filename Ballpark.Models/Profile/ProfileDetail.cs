@@ -24,6 +24,7 @@ namespace Ballpark.Models
         [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Games Attended")]
         public int TotalGames { get; set; }
     }
 }
