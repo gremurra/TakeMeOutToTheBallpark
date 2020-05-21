@@ -104,5 +104,18 @@ namespace Ballpark.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public List<string> GetTeamNames()     //create List of Team Names
+        {
+            List<string> TeamNames = new List<string>();
+
+            IEnumerable<TeamListItem> ListOfTeams = GetTeams();
+
+            foreach (TeamListItem team in ListOfTeams)
+            {
+                TeamNames.Add(team.TeamName);
+            }
+            return TeamNames;
+        }
     }
 }

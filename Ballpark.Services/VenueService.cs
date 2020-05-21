@@ -119,7 +119,7 @@ namespace Ballpark.Services
             }
         }
 
-        public List<string> GetVenueNames()     //created List of Venue Names
+        public List<string> GetVenueNames()     //create List of Venue Names
         {
             List<string> VenueNames = new List<string>();
 
