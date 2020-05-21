@@ -57,7 +57,9 @@ namespace Ballpark.Services
                         }
                         );
 
-                return query.ToArray();
+                var eventList = query.ToArray();
+                eventList.OrderBy(e => e.DateOfGame);
+                return eventList;
             }
         }
 

@@ -25,8 +25,8 @@ namespace Ballpark.Data
 
         public DateTimeOffset CreatedUtc { get; set; }
 
-        //public int TotalGames { get { return Events.Count; } }
+        public int TotalGames { get { return Events.Count; } }
 
-        //public virtual List<Event> Events { get; set; } = new List<Event>();
+        public virtual List<Event> Events { get; set; } = new List<Event>();
     }
 }
