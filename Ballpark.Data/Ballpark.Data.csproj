@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202005202238072_UpdateMigration.Designer.cs">
       <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005211813418_VenueOwnerIDMigration.cs" />
+    <Compile Include="Migrations\202005211813418_VenueOwnerIDMigration.Designer.cs">
+      <DependentUpon>202005211813418_VenueOwnerIDMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005202238072_UpdateMigration.resx">
       <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005211813418_VenueOwnerIDMigration.resx">
+      <DependentUpon>202005211813418_VenueOwnerIDMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

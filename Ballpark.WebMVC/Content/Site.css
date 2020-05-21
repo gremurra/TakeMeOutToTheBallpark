@@ -6,6 +6,12 @@
     color: white;
 }
 
+jumbotron {
+    color: darkslategrey;
+    background-color: white;
+    text-align: center;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

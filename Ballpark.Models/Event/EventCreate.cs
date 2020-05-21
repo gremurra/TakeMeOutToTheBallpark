@@ -19,7 +19,7 @@ namespace Ballpark.Models.Event
         public DateTimeOffset DateOfGame { get; set; }
 
         [Required]
-        [Display(Name = "Venue")]
+        [Display(Name = "Venue Name")]
         public string VenueName { get; set; }
 
         [Required]

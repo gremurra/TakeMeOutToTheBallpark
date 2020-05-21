@@ -11,14 +11,22 @@ namespace Ballpark.Data
     {
         [Key]
         public int VenueID { get; set; }
+
+        [Required]
+        public Guid OwnerID { get; set; }
+
         [Required]
         public string VenueName { get; set; }
+
         [Required]
         public string Location { get; set; }
+
         [Required]
         public int YearOpened { get; set; }
+
         [Required]
         public int Capacity { get; set; }
+
         [Required]
         public bool IsActive { get; set; }
 

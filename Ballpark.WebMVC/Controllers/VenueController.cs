@@ -1,5 +1,6 @@
 ﻿using Ballpark.Models.Venue;
 using Ballpark.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Venue
         public ActionResult Index()
         {
-            var service = new VenueService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService(userID);
             var model = service.GetVenues();
             return View(model);
         }
@@ -119,9 +121,11 @@ namespace Ballpark.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private static VenueService CreateVenueService()
+        private VenueService CreateVenueService()
         {
-            return new VenueService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService(userID);
+            return service;
         }
     }
 }
