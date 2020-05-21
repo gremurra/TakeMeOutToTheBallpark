@@ -21,6 +21,7 @@ namespace Ballpark.Services
                 new Team()
                 {
                     TeamName = model.TeamName,
+                    VenueID = model.VenueID,
                     VenueName = model.VenueName
                 };
 
@@ -44,6 +45,7 @@ namespace Ballpark.Services
                         {
                             TeamID = e.TeamID,
                             TeamName = e.TeamName,
+                            VenueID = e.VenueID,
                             VenueName = e.VenueName
                         }
                         );
@@ -66,6 +68,7 @@ namespace Ballpark.Services
                         TeamID = entity.TeamID,
                         TeamName = entity.TeamName,
                         VenueID = entity.VenueID,
+                        VenueName = entity.VenueName
                     };
             }
         }
@@ -81,6 +84,7 @@ namespace Ballpark.Services
 
                 entity.TeamName = model.TeamName;
                 entity.VenueID = model.VenueID;
+                entity.VenueName = model.VenueName;
 
                 return ctx.SaveChanges() == 1;
             }
