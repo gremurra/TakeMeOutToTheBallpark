@@ -25,8 +25,27 @@ namespace Ballpark.Data
 
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public int TotalGames { get { return Events.Count; } }
+        //public int TotalGames { get { return Events.Count; } }      //still at zero, even after adding an event
 
-        public virtual List<Event> Events { get; set; } = new List<Event>();
+        ////public virtual List<Event> Events
+        //{
+        //    get
+        //    {
+        //        using (var cxt = new ApplicationDbContext())
+        //        {
+        //            var list =
+        //                cxt.Events
+        //                .Where(e => e.ProfileID == ProfileID)
+        //                .Select(e =>
+        //                new Event
+        //                {
+        //                    EventID = e.EventID,
+        //                    VenueName = e.VenueName
+
+        //                });
+        //            return list.ToList();
+        //        }
+        //    }    //adding to new List of Events???
     }
 }
+

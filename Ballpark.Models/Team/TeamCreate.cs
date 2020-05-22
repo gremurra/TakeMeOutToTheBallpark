@@ -10,6 +10,7 @@ namespace Ballpark.Models.Team
 {
     public class TeamCreate
     {
+        [Required]
         [Display(Name = "Team Name")]
         public string TeamName { get; set; }
 

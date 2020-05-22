@@ -22,7 +22,6 @@ namespace Ballpark.Services
                 {
                     TeamName = model.TeamName,
                     VenueID = model.VenueID,
-                    VenueName = model.VenueName
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -46,11 +45,13 @@ namespace Ballpark.Services
                             TeamID = e.TeamID,
                             TeamName = e.TeamName,
                             VenueID = e.VenueID,
-                            VenueName = e.VenueName
+                            VenueName = e.Venue.VenueName
                         }
                         );
 
-                return query.ToArray();
+                var teamList = query.ToArray();
+                var orderedTeamList = teamList.OrderBy(e => e.TeamName);
+                return orderedTeamList;
             }
         }
 
@@ -67,8 +68,7 @@ namespace Ballpark.Services
                     {
                         TeamID = entity.TeamID,
                         TeamName = entity.TeamName,
-                        VenueID = entity.VenueID,
-                        VenueName = entity.VenueName
+                        VenueName = entity.Venue.VenueName
                     };
             }
         }
@@ -84,7 +84,6 @@ namespace Ballpark.Services
 
                 entity.TeamName = model.TeamName;
                 entity.VenueID = model.VenueID;
-                entity.VenueName = model.VenueName;
 
                 return ctx.SaveChanges() == 1;
             }

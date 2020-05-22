@@ -56,25 +56,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202005191440581_NewFirstMigration.cs" />
-    <Compile Include="Migrations\202005191440581_NewFirstMigration.Designer.cs">
-      <DependentUpon>202005191440581_NewFirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005191828010_VenueNameMigration.cs" />
-    <Compile Include="Migrations\202005191828010_VenueNameMigration.Designer.cs">
-      <DependentUpon>202005191828010_VenueNameMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005202044087_VenueIDMigration.cs" />
-    <Compile Include="Migrations\202005202044087_VenueIDMigration.Designer.cs">
-      <DependentUpon>202005202044087_VenueIDMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005202238072_UpdateMigration.cs" />
-    <Compile Include="Migrations\202005202238072_UpdateMigration.Designer.cs">
-      <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005211813418_VenueOwnerIDMigration.cs" />
-    <Compile Include="Migrations\202005211813418_VenueOwnerIDMigration.Designer.cs">
-      <DependentUpon>202005211813418_VenueOwnerIDMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005221831418_RefactoringMigration.cs" />
+    <Compile Include="Migrations\202005221831418_RefactoringMigration.Designer.cs">
+      <DependentUpon>202005221831418_RefactoringMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
@@ -87,20 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005191440581_NewFirstMigration.resx">
-      <DependentUpon>202005191440581_NewFirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005191828010_VenueNameMigration.resx">
-      <DependentUpon>202005191828010_VenueNameMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005202044087_VenueIDMigration.resx">
-      <DependentUpon>202005202044087_VenueIDMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005202238072_UpdateMigration.resx">
-      <DependentUpon>202005202238072_UpdateMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005211813418_VenueOwnerIDMigration.resx">
-      <DependentUpon>202005211813418_VenueOwnerIDMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005221831418_RefactoringMigration.resx">
+      <DependentUpon>202005221831418_RefactoringMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

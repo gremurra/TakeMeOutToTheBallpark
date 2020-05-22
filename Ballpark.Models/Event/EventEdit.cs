@@ -9,22 +9,26 @@ namespace Ballpark.Models.Event
 {
     public class EventEdit
     {
-        [Display(Name = "Event ID Number")]
+
         public int EventID { get; set; }
 
+        [Required]
         [Display(Name = "Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date)]
         public DateTimeOffset DateOfGame { get; set; }
 
-        [Display(Name = "Venue")]
+        [Display(Name = "Profile ID Number")]
+        public int ProfileID { get; set; }
+
+        [Display(Name = "Venue Name")]
         public string VenueName { get; set; }
 
-        [Display(Name = "Home Team")]
-        public string TeamName { get; set; }
+        [Display(Name = "Home Team ID Number")]
+        public int HomeTeamID { get; set; }
 
-        [Display(Name = "Away Team")]
-        public string AwayTeam { get; set; }
+        [Display(Name = "Away Team ID Number")]
+        public int AwayTeamID { get; set; }
 
         public string Result { get; set; }
 

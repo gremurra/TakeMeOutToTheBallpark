@@ -1,14 +1,32 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: darkslategrey;
+    background-color: #2f4f4f;
     font: "Trebuchet MS", Verdana, sans-serif;
     color: white;
 }
 
-jumbotron {
-    color: darkslategrey;
-    background-color: white;
+.jumbotron {
+    color: white;
+    background-color: #2f4f4f;
+    text-align: center;
+}
+
+    .jumbotron h1 {
+        font-size: 90px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #white;
+        text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+    }
+
+    .jumbotron h2 {
+        font-size: 120px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #white;
+        text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+    }
+
+.mainOptions {
     text-align: center;
 }
 

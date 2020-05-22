@@ -16,11 +16,8 @@ namespace Ballpark.Data
         [Required]
         public string TeamName { get; set; }
 
-        [Required]
+        [ForeignKey(nameof(Venue))]
         public int VenueID { get; set; }
-        public string VenueName { get; set; }
-
-        [ForeignKey(nameof(VenueID))]
         public virtual Venue Venue { get; set; }
     }
 }

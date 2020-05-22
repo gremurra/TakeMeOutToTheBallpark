@@ -20,12 +20,10 @@ namespace Ballpark.Services
             var entity =
                 new Event()
                 {
-                    ProfileID = model.ProfileID,
                     DateOfGame = model.DateOfGame,
-                    VenueName = model.VenueName,
-                    TeamID = model.TeamID,
-                    TeamName = model.TeamName,
-                    AwayTeam = model.AwayTeam,
+                    ProfileID = model.ProfileID,
+                    HomeID = model.HomeTeamID,
+                    AwayID = model.AwayTeamID,
                     Result = model.Result,
                     Comments = model.Comments
                 };
@@ -48,18 +46,18 @@ namespace Ballpark.Services
                         e =>
                         new EventListItem
                         {
-                            EventID = e.EventID,
                             DateOfGame = e.DateOfGame,
-                            VenueName = e.VenueName,
-                            TeamName = e.TeamName,
-                            AwayTeam = e.AwayTeam,
+                            EventID = e.EventID,
+                            VenueName = e.HomeTeam.Venue.VenueName,
+                            HomeTeam = e.HomeTeam.TeamName,
+                            AwayTeam = e.AwayTeam.TeamName,
                             Result = e.Result
                         }
                         );
 
                 var eventList = query.ToArray();
-                eventList.OrderBy(e => e.DateOfGame);
-                return eventList;
+                var orderedEventList = eventList.OrderBy(e => e.DateOfGame);
+                return orderedEventList;
             }
         }
 
@@ -76,9 +74,9 @@ namespace Ballpark.Services
                     {
                         EventID = entity.EventID,
                         DateOfGame = entity.DateOfGame,
-                        VenueName = entity.VenueName,
-                        TeamName = entity.TeamName,
-                        AwayTeam = entity.AwayTeam,
+                        VenueName = entity.HomeTeam.Venue.VenueName,
+                        HomeTeam = entity.HomeTeam.TeamName,
+                        AwayTeam = entity.AwayTeam.TeamName,
                         Result = entity.Result,
                         Comments = entity.Comments
                     };
@@ -95,9 +93,8 @@ namespace Ballpark.Services
                     .Single(e => e.EventID == model.EventID);
 
                 entity.DateOfGame = model.DateOfGame;
-                entity.VenueName = model.VenueName;
-                entity.TeamName = model.TeamName;
-                entity.AwayTeam = model.AwayTeam;
+                entity.HomeID = model.HomeTeamID;
+                entity.AwayID = model.AwayTeamID;
                 entity.Result = model.Result;
                 entity.Comments = model.Comments;
 

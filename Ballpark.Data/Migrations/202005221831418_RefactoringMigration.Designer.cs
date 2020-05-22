@@ -7,13 +7,13 @@ namespace Ballpark.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class VenueNameMigration : IMigrationMetadata
+    public sealed partial class RefactoringMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(VenueNameMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RefactoringMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005191828010_VenueNameMigration"; }
+            get { return "202005221831418_RefactoringMigration"; }
         }
         
         string IMigrationMetadata.Source

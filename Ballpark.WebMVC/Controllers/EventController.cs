@@ -61,9 +61,8 @@ namespace Ballpark.WebMVC.Controllers
                 {
                     EventID = detail.EventID,
                     DateOfGame = detail.DateOfGame,
-                    VenueName = detail.VenueName,
-                    TeamName = detail.TeamName,
-                    AwayTeam = detail.AwayTeam,
+                    HomeTeamID = detail.HomeID,
+                    AwayTeamID = detail.AwayID,
                     Result = detail.Result,
                     Comments = detail.Comments
                 };
