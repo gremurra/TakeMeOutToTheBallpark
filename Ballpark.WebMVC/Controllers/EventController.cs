@@ -52,6 +52,14 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult DetailsByVenue(string venue)
+        {
+            var svc = CreateEventService();
+            var model = svc.GetEventByVenueName(venue);
+
+            return View(model);
+        }
+
         public ActionResult Edit(int id)
         {
             var service = CreateEventService();

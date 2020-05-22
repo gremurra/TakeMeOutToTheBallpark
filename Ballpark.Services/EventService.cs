@@ -83,6 +83,33 @@ namespace Ballpark.Services
             }
         }
 
+        public IEnumerable<EventDetail> GetEventByVenueName(string venueName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Events
+                    .Where(e => e.HomeTeam.Venue.VenueName == venueName)
+                    .Select(
+                        e =>
+                    new EventDetail
+                    {
+                        EventID = e.EventID,
+                        DateOfGame = e.DateOfGame,
+                        VenueName = e.HomeTeam.Venue.VenueName,
+                        HomeTeam = e.HomeTeam.TeamName,
+                        AwayTeam = e.AwayTeam.TeamName,
+                        Result = e.Result,
+                        Comments = e.Comments
+                    }
+                    );
+                var eventList = query.ToArray();
+                var orderedEventList = eventList.OrderBy(e => e.DateOfGame);
+                return orderedEventList;
+            }
+        }
+
         public bool UpdateEvent(EventEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -102,7 +129,7 @@ namespace Ballpark.Services
             }
         }
 
-        public bool DeleteEvent (int eventID)
+        public bool DeleteEvent(int eventID)
         {
             using (var ctx = new ApplicationDbContext())
             {
