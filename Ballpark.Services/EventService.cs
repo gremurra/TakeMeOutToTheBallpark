@@ -11,7 +11,8 @@ namespace Ballpark.Services
     public class EventService
     {
         //List<string> gamesAttended = new List<string>();
-        //HashSet<string> venuesVisited = new HashSet<string>();
+        //HashSet<Event> venuesVisited = new HashSet<Event>();
+        //HashSet<string> uniqueVenueNames = new HashSet<string>();
 
         public EventService()
         {
@@ -34,7 +35,8 @@ namespace Ballpark.Services
             {
                 ctx.Events.Add(entity);
                 //gamesAttended.Add(entity.HomeTeam.Venue.VenueName);    //adding VenueName into a List<string>
-                //venuesVisited.Add(entity.HomeTeam.Venue.VenueName);   //hashSet is gamesAttended, without the duplicates
+                //venuesVisited = entity.Profile.VisitedVenues;
+                //uniqueVenueNames.Add(entity.HomeTeam.Venue.VenueName);   //hashSet is gamesAttended, without the duplicates
                 return ctx.SaveChanges() == 1;
             }
         }

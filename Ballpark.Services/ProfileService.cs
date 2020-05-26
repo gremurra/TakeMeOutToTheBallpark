@@ -11,6 +11,7 @@ namespace Ballpark.Services
     public class ProfileService
     {
         private readonly Guid _userId;
+        private ApplicationDbContext _database = new ApplicationDbContext();
 
         public ProfileService(Guid userId)
         {
@@ -43,7 +44,7 @@ namespace Ballpark.Services
                 var query =
                     ctx
                     .Profiles
-                    .Where(e => e.OwnerID == _userId)
+                    .Where(e => e.OwnerID == _userId).ToHashSet()
                     .Select(
                         e =>
                         new ProfileListItem
@@ -53,7 +54,7 @@ namespace Ballpark.Services
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
                             CreatedUtc = e.CreatedUtc,
-                            //TotalGames = e.TotalGames
+                            StadiumsVisited = e.StadiumsVisited
                         }
                         );
 
@@ -77,7 +78,7 @@ namespace Ballpark.Services
                         LastName = entity.LastName,
                         FavTeam = entity.FavTeam,
                         CreatedUtc = entity.CreatedUtc,
-                        //TotalGames = entity.TotalGames
+                        StadiumsVisited = entity.StadiumsVisited
                     };
             }
         }
@@ -112,6 +113,13 @@ namespace Ballpark.Services
 
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public HashSet<Event> GetStadiumsByProfileID(int profileID)
+        {
+            var gameSet = _database.Events.Where(e => e.ProfileID == profileID).ToHashSet();
+            
+            return gameSet;
         }
     }
 }

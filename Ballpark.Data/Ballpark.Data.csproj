@@ -60,6 +60,18 @@
     <Compile Include="Migrations\202005221831418_RefactoringMigration.Designer.cs">
       <DependentUpon>202005221831418_RefactoringMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005261741028_VisitedVenueMigration.cs" />
+    <Compile Include="Migrations\202005261741028_VisitedVenueMigration.Designer.cs">
+      <DependentUpon>202005261741028_VisitedVenueMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005261848044_HashSetStringMigration.cs" />
+    <Compile Include="Migrations\202005261848044_HashSetStringMigration.Designer.cs">
+      <DependentUpon>202005261848044_HashSetStringMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005261921177_TwoHashSetsMigration.cs" />
+    <Compile Include="Migrations\202005261921177_TwoHashSetsMigration.Designer.cs">
+      <DependentUpon>202005261921177_TwoHashSetsMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +85,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005221831418_RefactoringMigration.resx">
       <DependentUpon>202005221831418_RefactoringMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005261741028_VisitedVenueMigration.resx">
+      <DependentUpon>202005261741028_VisitedVenueMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005261848044_HashSetStringMigration.resx">
+      <DependentUpon>202005261848044_HashSetStringMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005261921177_TwoHashSetsMigration.resx">
+      <DependentUpon>202005261921177_TwoHashSetsMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
