@@ -1,14 +1,15 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #2f4f4f;
+    background-color: #BF0A30;
     font: "Trebuchet MS", Verdana, sans-serif;
     color: white;
 }
 
 .jumbotron {
     color: white;
-    background-color: #2f4f4f;
+    border-color: #BF0A30;
+    background-color: #002868;
     text-align: center;
 }
 
@@ -48,4 +49,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.footer {
+    text-align: center;
 }

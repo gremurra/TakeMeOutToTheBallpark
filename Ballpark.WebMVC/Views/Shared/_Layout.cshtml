@@ -26,9 +26,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("My Profile", "Index", "Profile")</li>
-                        <li>@Html.ActionLink("Venue List", "Index", "Venue")</li>
-                        <li>@Html.ActionLink("Team List", "Index", "Team")</li>
-                        <li>@Html.ActionLink("Event", "Index", "Event")</li>
+                        <li>@Html.ActionLink("Stadium List", "Index", "Venue")</li>
                         <li>@Html.ActionLink("Roles", "Index", "Role")</li>
                     }
                 </ul>
@@ -39,7 +37,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="footer">
             <p>&copy; @DateTime.Now.Year - GJM</p>
         </footer>
     </div>

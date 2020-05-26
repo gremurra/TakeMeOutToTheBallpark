@@ -59,7 +59,9 @@ namespace Ballpark.Services
                         }
                         );
 
-                return query.ToArray();
+                var venueList = query.ToArray();
+                var orderedVenueList = venueList.OrderBy(e => e.VenueName);
+                return orderedVenueList;
             }
         }
 
