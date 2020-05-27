@@ -44,7 +44,7 @@ namespace Ballpark.Services
                 var query =
                     ctx
                     .Profiles
-                    .Where(e => e.OwnerID == _userId).ToHashSet()
+                    .Where(e => e.OwnerID == _userId)
                     .Select(
                         e =>
                         new ProfileListItem
@@ -54,7 +54,7 @@ namespace Ballpark.Services
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
                             CreatedUtc = e.CreatedUtc,
-                            StadiumsVisited = e.StadiumsVisited
+                            Events = ctx.Events.Where(t => t.ProfileID == e.ProfileID).ToList()
                         }
                         );
 
@@ -115,11 +115,11 @@ namespace Ballpark.Services
             }
         }
 
-        public HashSet<Event> GetStadiumsByProfileID(int profileID)
+        public List<Event> GetEventsByProfileID(int profileID)
         {
-            var gameSet = _database.Events.Where(e => e.ProfileID == profileID).ToHashSet();
-            
-            return gameSet;
+            var eventList = _database.Events.Where(e => e.ProfileID == profileID).ToList();
+
+            return eventList;
         }
     }
 }

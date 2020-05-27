@@ -25,10 +25,11 @@ namespace Ballpark.Data
 
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public int StadiumsVisited { get { return VisitedVenues.Count; } }
+        public int? StadiumsVisited { get { return VisitedVenues.Count; } }
 
-        public virtual HashSet<Event> VisitedVenues { get; set; }
-        //public HashSet<string> UniqueVenueNames { get; set; }
+        public List<string> VisitedVenues { get; set; }
+
+
     }
 }
 

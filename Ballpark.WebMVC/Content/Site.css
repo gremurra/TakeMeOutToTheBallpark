@@ -1,16 +1,19 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #BF0A30;
+    background-color: #002868;
     font: "Trebuchet MS", Verdana, sans-serif;
     color: white;
 }
 
 .jumbotron {
-    color: white;
+    color: black;
     border-color: #BF0A30;
     background-color: #002868;
     text-align: center;
+    background-image: url(./assets/baseball.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
     .jumbotron h1 {

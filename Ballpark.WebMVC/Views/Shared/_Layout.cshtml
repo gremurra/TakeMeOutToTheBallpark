@@ -10,8 +10,8 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body background="./">
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,7 +27,6 @@
                     {
                         <li>@Html.ActionLink("My Profile", "Index", "Profile")</li>
                         <li>@Html.ActionLink("Stadium List", "Index", "Venue")</li>
-                        <li>@Html.ActionLink("Roles", "Index", "Role")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

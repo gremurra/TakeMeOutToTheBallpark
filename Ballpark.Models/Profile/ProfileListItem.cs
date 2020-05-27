@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Ballpark.Models
 {
     public class ProfileListItem
@@ -25,6 +26,19 @@ namespace Ballpark.Models
         public DateTimeOffset CreatedUtc { get; set; }
 
         [Display(Name = "Stadiums Visited")]
-        public int StadiumsVisited { get; set; }
+        public int StadiumsVisited
+        {
+            get
+            {
+                List<string> VenueNames = new List<string>();
+                foreach (var stadium in Events)
+                {
+                    VenueNames.Add(stadium.HomeTeam.Venue.VenueName);
+                }
+                return VenueNames.Count();
+            }
+        }
+
+        public virtual ICollection<Ballpark.Data.Event> Events { get; set; }
     }
 }

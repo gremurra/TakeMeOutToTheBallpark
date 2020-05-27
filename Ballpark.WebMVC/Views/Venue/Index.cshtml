@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Venue List</h2>
+<h2>MLB Stadiums</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@*<p>
+    @Html.ActionLink("Create New", "Create")    //might add this back in, the goal is that the user does not have ability to add a new stadium, only the admin
+</p>*@
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -20,9 +21,6 @@
 }
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VenueID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.VenueName)
         </th>
@@ -44,9 +42,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenueID)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VenueName)
             </td>

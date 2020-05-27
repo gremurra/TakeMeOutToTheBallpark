@@ -72,6 +72,14 @@
     <Compile Include="Migrations\202005261921177_TwoHashSetsMigration.Designer.cs">
       <DependentUpon>202005261921177_TwoHashSetsMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005262044521_visitVenueMigration.cs" />
+    <Compile Include="Migrations\202005262044521_visitVenueMigration.Designer.cs">
+      <DependentUpon>202005262044521_visitVenueMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005262049398_NullableIntMigration.cs" />
+    <Compile Include="Migrations\202005262049398_NullableIntMigration.Designer.cs">
+      <DependentUpon>202005262049398_NullableIntMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005261921177_TwoHashSetsMigration.resx">
       <DependentUpon>202005261921177_TwoHashSetsMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005262044521_visitVenueMigration.resx">
+      <DependentUpon>202005262044521_visitVenueMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005262049398_NullableIntMigration.resx">
+      <DependentUpon>202005262049398_NullableIntMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

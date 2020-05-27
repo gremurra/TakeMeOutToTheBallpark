@@ -13,7 +13,7 @@ namespace Ballpark.WebMVC.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult Index()     //displays all the notes for the current user.
+        public ActionResult Index()     //displays all the profiles for the current user.
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new ProfileService(userID);

@@ -10,8 +10,10 @@ namespace Ballpark.Services
 {
     public class EventService
     {
+        private ApplicationDbContext _database = new ApplicationDbContext();
+
         //List<string> gamesAttended = new List<string>();
-        //HashSet<Event> venuesVisited = new HashSet<Event>();
+        List<string> venuesVisited = new List<string>();
         //HashSet<string> uniqueVenueNames = new HashSet<string>();
 
         public EventService()
@@ -28,14 +30,16 @@ namespace Ballpark.Services
                     HomeID = model.HomeTeamID,
                     AwayID = model.AwayTeamID,
                     Result = model.Result,
-                    Comments = model.Comments
+                    Comments = model.Comments,
                 };
+
+            venuesVisited.Add(entity.HomeTeam.Venue.VenueName);
+            venuesVisited = entity.Profile.VisitedVenues;
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Events.Add(entity);
                 //gamesAttended.Add(entity.HomeTeam.Venue.VenueName);    //adding VenueName into a List<string>
-                //venuesVisited = entity.Profile.VisitedVenues;
                 //uniqueVenueNames.Add(entity.HomeTeam.Venue.VenueName);   //hashSet is gamesAttended, without the duplicates
                 return ctx.SaveChanges() == 1;
             }
