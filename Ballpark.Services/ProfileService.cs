@@ -53,8 +53,8 @@ namespace Ballpark.Services
                             FirstName = e.FirstName,
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
-                            CreatedUtc = e.CreatedUtc,
-                            Events = ctx.Events.Where(t => t.ProfileID == e.ProfileID).ToList()
+                            CreatedUtc = e.CreatedUtc
+                            //Events = ctx.Events.Where(t => t.ProfileID == e.ProfileID).ToList()
                         }
                         );
 
@@ -77,8 +77,7 @@ namespace Ballpark.Services
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
                         FavTeam = entity.FavTeam,
-                        CreatedUtc = entity.CreatedUtc,
-                        StadiumsVisited = entity.StadiumsVisited
+                        CreatedUtc = entity.CreatedUtc
                     };
             }
         }

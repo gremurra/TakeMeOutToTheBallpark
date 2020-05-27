@@ -6,9 +6,24 @@
 
 <h2>MLB Stadiums</h2>
 
+<style>
+    .venueLink {
+        color: white;
+    }
+
+        .venueLink:hover {
+            font-weight: bold;
+            color: white;
+        }
+</style>
+
 @*<p>
-    @Html.ActionLink("Create New", "Create")    //might add this back in, the goal is that the user does not have ability to add a new stadium, only the admin
-</p>*@
+        @Html.ActionLink("Create New", "Create")    //might add this back in, the goal is that the user does not have ability to add a new stadium, only the admin
+    </p>*@
+
+<div class="progressTwo" style="--width: 50" data-label="Loading...">
+
+</div>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -43,7 +58,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.VenueName)
+                @Html.ActionLink(item.VenueName, "Details", new { id = item.VenueID }, new { @class = "venueLink" })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
@@ -58,9 +73,8 @@
                 @Html.DisplayFor(modelItem => item.IsActive)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VenueID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.VenueID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.VenueID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.VenueID }, new { @class = "venueLink" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VenueID }, new { @class = "venueLink" })
             </td>
         </tr>
     }

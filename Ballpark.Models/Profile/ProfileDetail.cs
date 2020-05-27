@@ -24,7 +24,7 @@ namespace Ballpark.Models
         [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [Display(Name = "Stadiums Visited")]
-        public int? StadiumsVisited { get; set; }
+        //[Display(Name = "Stadiums Visited")]
+        //public int? StadiumsVisited { get; set; }
     }
 }

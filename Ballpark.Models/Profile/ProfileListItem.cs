@@ -25,20 +25,20 @@ namespace Ballpark.Models
         [Display(Name = "Joined")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [Display(Name = "Stadiums Visited")]
-        public int StadiumsVisited
-        {
-            get
-            {
-                List<string> VenueNames = new List<string>();
-                foreach (var stadium in Events)
-                {
-                    VenueNames.Add(stadium.HomeTeam.Venue.VenueName);
-                }
-                return VenueNames.Count();
-            }
-        }
+        //[Display(Name = "Stadiums Visited")]
+        //public int StadiumsVisited
+        //{
+        //    get
+        //    {
+        //        List<string> VenueNames = new List<string>();
+        //        foreach (var stadium in Events)
+        //        {
+        //            VenueNames.Add(stadium.HomeTeam.Venue.VenueName);
+        //        }
+        //        return VenueNames.Count();
+        //    }
+        //}
 
-        public virtual ICollection<Ballpark.Data.Event> Events { get; set; }
+        //public virtual ICollection<Ballpark.Data.Event> Events { get; set; }
     }
 }

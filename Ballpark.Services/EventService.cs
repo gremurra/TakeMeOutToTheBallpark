@@ -13,7 +13,7 @@ namespace Ballpark.Services
         private ApplicationDbContext _database = new ApplicationDbContext();
 
         //List<string> gamesAttended = new List<string>();
-        List<string> venuesVisited = new List<string>();
+        //List<string> venuesVisited = new List<string>();
         //HashSet<string> uniqueVenueNames = new HashSet<string>();
 
         public EventService()
@@ -33,8 +33,8 @@ namespace Ballpark.Services
                     Comments = model.Comments,
                 };
 
-            venuesVisited.Add(entity.HomeTeam.Venue.VenueName);
-            venuesVisited = entity.Profile.VisitedVenues;
+            //venuesVisited.Add(entity.HomeTeam.Venue.VenueName);
+            //venuesVisited = entity.Profile.VisitedVenues;
 
             using (var ctx = new ApplicationDbContext())
             {

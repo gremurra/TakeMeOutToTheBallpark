@@ -16,6 +16,7 @@ namespace Ballpark.WebMVC.Controllers
         {
             var service = new EventService();
             var model = service.GetEvents();
+            //ViewBag.Venues="service.{method()}"
             return View(model);
         }
 
