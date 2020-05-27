@@ -114,11 +114,11 @@ namespace Ballpark.Services
             }
         }
 
-        public List<Event> GetEventsByProfileID(int profileID)
-        {
-            var eventList = _database.Events.Where(e => e.ProfileID == profileID).ToList();
+        //public List<Event> GetEventsByProfileID(int profileID)
+        //{
+        //    var eventList = _database.Events.Where(e => e.ProfileID == profileID).ToList();
 
-            return eventList;
-        }
+        //    return eventList;
+        //}
     }
 }
