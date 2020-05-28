@@ -16,6 +16,9 @@ namespace Ballpark.Data
         [Required]
         public DateTimeOffset DateOfGame { get; set; }
 
+        [Required]
+        public Guid OwnerID { get; set; }
+
         public string Result { get; set; }
 
         public string Comments { get; set; }

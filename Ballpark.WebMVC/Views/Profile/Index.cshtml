@@ -30,9 +30,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProfileID)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
@@ -51,9 +48,6 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProfileID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
@@ -68,16 +62,11 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }, new { @class = "profileLink" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ProfileID }, new { @class = "profileLink" }) |
-                @Html.ActionLink("MyEvents", "GetEventsByProfile", new { id = item.ProfileID }, new { @class = "profileLink" }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID }, new { @class = "profileLink" })
             </td>
         </tr>
     }
 
 </table>
-
-<div class="progress">
-    <div class="progress-bar progress-bar-striped" style="width:7%;">2 out of 30</div>
-</div>
 
 

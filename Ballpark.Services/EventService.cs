@@ -10,14 +10,12 @@ namespace Ballpark.Services
 {
     public class EventService
     {
+        private readonly Guid _userId;
         private ApplicationDbContext _database = new ApplicationDbContext();
 
-        //List<string> gamesAttended = new List<string>();
-        //List<string> venuesVisited = new List<string>();
-        //HashSet<string> uniqueVenueNames = new HashSet<string>();
-
-        public EventService()
+        public EventService(Guid userID)
         {
+            _userId = userID;
         }
 
         public bool CreateEvent(EventCreate model)     //creates the instance of Event
@@ -25,6 +23,7 @@ namespace Ballpark.Services
             var entity =
                 new Event()
                 {
+                    OwnerID = _userId,
                     DateOfGame = model.DateOfGame,
                     ProfileID = model.ProfileID,
                     HomeID = model.HomeTeamID,
@@ -33,14 +32,9 @@ namespace Ballpark.Services
                     Comments = model.Comments,
                 };
 
-            //venuesVisited.Add(entity.HomeTeam.Venue.VenueName);
-            //venuesVisited = entity.Profile.VisitedVenues;
-
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Events.Add(entity);
-                //gamesAttended.Add(entity.HomeTeam.Venue.VenueName);    //adding VenueName into a List<string>
-                //uniqueVenueNames.Add(entity.HomeTeam.Venue.VenueName);   //hashSet is gamesAttended, without the duplicates
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -52,6 +46,7 @@ namespace Ballpark.Services
                 var query =
                     ctx
                     .Events
+                    .Where( e => e.OwnerID == _userId)
                     .Select(
                         e =>
                         new EventListItem
@@ -67,18 +62,19 @@ namespace Ballpark.Services
 
                 var eventList = query.ToArray();
                 var orderedEventList = eventList.OrderBy(e => e.DateOfGame);
+                
                 return orderedEventList;
             }
         }
 
-        public HashSet<string> GetVenueHashSet() //int profileID?????
-            //check userID
+        public HashSet<string> GetVenueHashSet()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx.
                     Events
+                    .Where(e => e.OwnerID == _userId)
                     .Select(
                         e =>
                         new EventListItem
@@ -111,7 +107,7 @@ namespace Ballpark.Services
                 var entity =
                     ctx
                     .Events
-                    .Single(e => e.EventID == id);
+                    .Single(e => e.EventID == id && e.OwnerID == _userId);
                 return
                     new EventDetail
                     {
@@ -125,12 +121,6 @@ namespace Ballpark.Services
                     };
             }
         }
-
-        //public void BallparkVisits()
-        //{
-        //    Console.WriteLine(gamesAttended.Count());
-        //    Console.WriteLine(venuesVisited.Count());
-        //}
 
         public IEnumerable<EventDetail> GetEventByVenueName(string venueName)
         {
@@ -166,7 +156,7 @@ namespace Ballpark.Services
                 var entity =
                     ctx
                     .Events
-                    .Single(e => e.EventID == model.EventID);
+                    .Single(e => e.EventID == model.EventID && e.OwnerID == _userId);
 
                 entity.DateOfGame = model.DateOfGame;
                 entity.HomeID = model.HomeTeamID;

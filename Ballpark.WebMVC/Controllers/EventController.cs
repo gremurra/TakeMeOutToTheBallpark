@@ -1,5 +1,6 @@
 ﻿using Ballpark.Models.Event;
 using Ballpark.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,27 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var service = new EventService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userID);
             var model = service.GetEvents();
-            //ViewBag.Venues="service.{method()}"
+
+            List<string> ListOfVenueNames = new List<string>();
+            foreach (var venueName in model)
+            {
+                ListOfVenueNames.Add(venueName.VenueName);
+            }
+            HashSet<string> HashSetOfVenueNames = new HashSet<string>(ListOfVenueNames);
+            ViewBag.VenueCount = HashSetOfVenueNames.Count();
             return View(model);
         }
 
         public ActionResult GetVisitedVenues()
         {
-            var service = new EventService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userID);
             var model = service.GetVenueHashSet();
-            ViewBag.VisitedVenues = model;
+            List<string> modelList = model.ToList();
+            ViewBag.VisitedVenues = modelList;
             ViewBag.VenueCount = model.Count();
             return View();
         }
@@ -134,9 +145,11 @@ namespace Ballpark.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private static EventService CreateEventService()
+        private EventService CreateEventService()
         {
-            return new EventService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userID);
+            return service;
         }
     }
 }

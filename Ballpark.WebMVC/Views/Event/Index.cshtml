@@ -4,19 +4,55 @@
     ViewBag.Title = "Index";
 }
 
-<h2>My Progress</h2>
+<h2>Ballpark Visits</h2>
 
 <style>
     .eventLink {
         color: white;
     }
+
+    h2 {
+        text-align: center;
+        font-style: italic;
+        font-size: 70px;
+    }
+
+    h5 {
+        text-align: center;
+        font-style: italic;
+        font-size: 20px;
+    }
+
+    .progress {
+        width: 700px;
+        height: 3em;
+        background-color: #111;
+        border-radius: 1.5em;
+        color: white;
+        position: relative;
+        margin-bottom: 15px;
+        font-size: 18px;
+        margin-left: 20%;
+        margin-top: 25px;
+    }
+
+    .progress-bar {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: calc(var(--width, 0) * 3.33%);  
+        padding: 1em;
+    }
 </style>
 
 <div class="progress">
-    <div class="progress-bar progress-bar-striped" style="width:7%;">2 out of 30</div>
+    <div class="progress-bar progress-bar-striped" style="--width: @ViewBag.VenueCount"></div>
 </div>
+
+<h5>You've been to @ViewBag.VenueCount out of 30 stadiums</h5>
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Visit", "Create")
 </p>
 
 @if  (TempData.ContainsKey("SaveResult"))
@@ -29,7 +65,6 @@
         @TempData["SaveResult"]
     </div>
 }
-
 
 <table class="table">
     <tr>
@@ -77,4 +112,3 @@
 }
 </table>
 
-@ViewBag.VenueCount

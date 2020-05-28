@@ -84,6 +84,10 @@
     <Compile Include="Migrations\202005271858479_AdjustingProfileICollectionMigration.Designer.cs">
       <DependentUpon>202005271858479_AdjustingProfileICollectionMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005281836243_EventUserIDMigration.cs" />
+    <Compile Include="Migrations\202005281836243_EventUserIDMigration.Designer.cs">
+      <DependentUpon>202005281836243_EventUserIDMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005271858479_AdjustingProfileICollectionMigration.resx">
       <DependentUpon>202005271858479_AdjustingProfileICollectionMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005281836243_EventUserIDMigration.resx">
+      <DependentUpon>202005281836243_EventUserIDMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

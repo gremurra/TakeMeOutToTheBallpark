@@ -54,7 +54,6 @@ namespace Ballpark.Services
                             LastName = e.LastName,
                             FavTeam = e.FavTeam,
                             CreatedUtc = e.CreatedUtc
-                            //Events = ctx.Events.Where(t => t.ProfileID == e.ProfileID).ToList()
                         }
                         );
 
