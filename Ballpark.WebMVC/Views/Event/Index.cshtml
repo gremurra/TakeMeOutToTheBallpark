@@ -5,6 +5,13 @@
 }
 
 <h2>My Progress</h2>
+
+<style>
+    .eventLink {
+        color: white;
+    }
+</style>
+
 <div class="progress">
     <div class="progress-bar progress-bar-striped" style="width:7%;">2 out of 30</div>
 </div>
@@ -62,10 +69,12 @@
             @Html.DisplayFor(modelItem => item.Result)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }, new { @class = "eventLink" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EventID }, new { @class = "eventLink" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventID }, new { @class = "eventLink" })
         </td>
     </tr>
 }
 </table>
+
+@ViewBag.VenueCount

@@ -5,24 +5,30 @@
 
 <h2>GetVisitedVenues</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Venues Visited:
-        </th>
-        <th>
-            Venues Visited:
-        </th>
-        <th></th>
-    </tr>
-<tr>
-    <td>
-        @ViewBag.VisitedVenues
-    </td>
-    <td>
-        @ViewBag.VenueCount
-    </td>
-</tr>
+<style>
+    .progress {
+        width: 700px;
+        height: 3em;
+        background-color: #111;
+        border-radius: 1.5em;
+        color: white;
+        position: relative;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
 
-</table>
+    .progress-bar {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: calc(var(--width, 0) * 3.33%);  
+        padding: 1em;
+    }
+</style>
+
+@ViewBag.VenueCount
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped" style="--width: @ViewBag.VenueCount">@ViewBag.VenueCount out of 30</div>
+</div>
 
