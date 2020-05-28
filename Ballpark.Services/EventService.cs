@@ -71,6 +71,39 @@ namespace Ballpark.Services
             }
         }
 
+        public HashSet<string> GetVenueHashSet() //int profileID?????
+            //check userID
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.
+                    Events
+                    .Select(
+                        e =>
+                        new EventListItem
+                        {
+                            DateOfGame = e.DateOfGame,
+                            EventID = e.EventID,
+                            VenueName = e.HomeTeam.Venue.VenueName,
+                            HomeTeam = e.HomeTeam.TeamName,
+                            AwayTeam = e.AwayTeam.TeamName,
+                            Result = e.Result
+                        }
+                        );
+
+                var eventList = query.ToList();
+                List<string> ListOfVenueNames = new List<string>();
+                foreach (var venueName in eventList)
+                {
+                    ListOfVenueNames.Add(venueName.VenueName);
+                }
+                HashSet<string> HashSetOfVenueNames = new HashSet<string>(ListOfVenueNames);
+                return HashSetOfVenueNames;
+            }
+
+        }
+
         public EventDetail GetEventByID(int id)
         {
             using (var ctx = new ApplicationDbContext())

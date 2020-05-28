@@ -6,9 +6,16 @@
 
 <h2>My Profile</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<style>
+    .profileLink {
+        color: white;
+    }
+
+        .profileLink:hover {
+            font-weight: bold;
+            color: white;
+        }
+</style>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -59,9 +66,10 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProfileID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }, new { @class = "profileLink" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProfileID }, new { @class = "profileLink" }) |
+                @Html.ActionLink("MyEvents", "GetEventsByProfile", new { id = item.ProfileID }, new { @class = "profileLink" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID }, new { @class = "profileLink" })
             </td>
         </tr>
     }

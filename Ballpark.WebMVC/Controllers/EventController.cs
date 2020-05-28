@@ -20,6 +20,15 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult GetVisitedVenues()
+        {
+            var service = new EventService();
+            var model = service.GetVenueHashSet();
+            ViewBag.VisitedVenues = model;
+            ViewBag.VenueCount = model.Count();
+            return View();
+        }
+
         // GET: Create
         public ActionResult Create()
         {
