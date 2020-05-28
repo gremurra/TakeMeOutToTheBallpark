@@ -19,6 +19,12 @@ namespace Ballpark.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Name")]
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
+
         [Display(Name = "Favorite Team(s)")]
         public string FavTeam { get; set; }
 
@@ -30,7 +36,7 @@ namespace Ballpark.Models
         //{
         //    get
         //    {
-        //        List<string> VenueNames = new List<string>();
+        //        HashSet<string> VenueNames = new HashSet<string>();
         //        foreach (var stadium in Events)
         //        {
         //            VenueNames.Add(stadium.HomeTeam.Venue.VenueName);

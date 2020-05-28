@@ -18,6 +18,12 @@ namespace Ballpark.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Name")]
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
+
         [Display(Name = "Favorite Team(s)")]
         public string FavTeam { get; set; }
 
