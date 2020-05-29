@@ -29,7 +29,7 @@ namespace Ballpark.Services
                     HomeID = model.HomeTeamID,
                     AwayID = model.AwayTeamID,
                     Result = model.Result,
-                    Comments = model.Comments,
+                    Comments = model.Comments
                 };
 
             using (var ctx = new ApplicationDbContext())

@@ -1,4 +1,5 @@
-﻿using Ballpark.Models.Event;
+﻿using Ballpark.Data;
+using Ballpark.Models.Event;
 using Ballpark.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,6 +13,9 @@ namespace Ballpark.WebMVC.Controllers
     [Authorize]
     public class EventController : Controller
     {
+
+        private ApplicationDbContext _database = new ApplicationDbContext();
+
         // GET: Event
         public ActionResult Index()
         {
@@ -43,6 +47,8 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Create
         public ActionResult Create()
         {
+            ViewBag.TeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "TeamID", "TeamName");
+            //ViewBag.TeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "AwayTeamID", "TeamName");
             return View();
         }
 
@@ -61,6 +67,7 @@ namespace Ballpark.WebMVC.Controllers
             };
 
             ModelState.AddModelError("", "Event could not be created.");
+
 
             return View(model);
         }
