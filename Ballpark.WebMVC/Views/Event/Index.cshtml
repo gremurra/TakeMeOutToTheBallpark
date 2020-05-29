@@ -51,9 +51,11 @@
 
 <h5>You've been to @ViewBag.VenueCount out of 30 stadiums</h5>
 
+<div class="addNew">
 <p>
     @Html.ActionLink("Add New Visit", "Create")
 </p>
+</div>
 
 @if  (TempData.ContainsKey("SaveResult"))
 {
