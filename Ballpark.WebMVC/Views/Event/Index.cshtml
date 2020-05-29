@@ -26,7 +26,7 @@
     .progress {
         width: 700px;
         height: 3em;
-        background-color: #111;
+        background-color: white;
         border-radius: 1.5em;
         color: white;
         position: relative;
@@ -42,6 +42,7 @@
         position: absolute;
         width: calc(var(--width, 0) * 3.33%);  
         padding: 1em;
+        background-color: green;
     }
 </style>
 
@@ -49,7 +50,7 @@
     <div class="progress-bar progress-bar-striped" style="--width: @ViewBag.VenueCount"></div>
 </div>
 
-<h5>You've been to @ViewBag.VenueCount out of 30 stadiums</h5>
+<h5>~You've been to @ViewBag.VenueCount out of 30 stadiums~</h5>
 
 <div class="addNew">
 <p>
