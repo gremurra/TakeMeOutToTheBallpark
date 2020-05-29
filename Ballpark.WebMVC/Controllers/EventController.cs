@@ -102,6 +102,9 @@ namespace Ballpark.WebMVC.Controllers
                     Result = detail.Result,
                     Comments = detail.Comments
                 };
+
+            ViewBag.HomeTeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "TeamID", "TeamName");
+            ViewBag.AwayTeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "TeamID", "TeamName");
             return View(model);
         }
 
