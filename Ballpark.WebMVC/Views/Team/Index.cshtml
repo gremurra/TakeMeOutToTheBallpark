@@ -9,12 +9,23 @@
 <style>
     h2 {
         text-align: center;
+        font-family: 'Gill Sans MT';
         font-size: 70px;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .teamLink {
         color: white;
+    }
+
+    .teamLink:hover {
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
+
+    .tableHeader {
+        font-size: 30px;
     }
 </style>
 
@@ -29,12 +40,12 @@
     </div>
 }
 <table class="table">
-    <tr>
+    <tr class="tableHeader">
         <th>
-            @Html.DisplayNameFor(model => model.TeamName)
+            Team Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VenueName)
+            Home Venue
         </th>
         <th></th>
     </tr>
