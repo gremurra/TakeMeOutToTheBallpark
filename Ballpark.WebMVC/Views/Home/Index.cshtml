@@ -10,9 +10,13 @@
     .btn {
         height: 60px;
         width: 400px;
-        font-size:30px;
+        font-size: 30px;
         margin-top: 75px;
         border: 3px solid white;
+    }
+
+    .column {
+        flex: 50%;
     }
 </style>
 
@@ -23,9 +27,18 @@
     <div class="mainOptions">
 
         <div class="row">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="col-lg-12">
+                    <p><a class="btn btn-success" href="https://localhost:44350/Event">My Events &raquo;</a></p>
+                </div>
+            }
+            else
+            {
             <div class="col-lg-12">
-                <p><a class="btn btn-success" href="https://localhost:44350/Event">Get Started &raquo;</a></p>
+                <p><a class="btn btn-success" href="https://localhost:44350/Account/Register">Sign Up &raquo;</a> </p>
             </div>
+            }
         </div>
     </div>
 </div>

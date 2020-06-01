@@ -24,10 +24,10 @@ namespace Ballpark.Models.Event
         [Display(Name = "Venue Name")]
         public string VenueName { get; set; }
 
-        [Display(Name = "Home Team ID Number")]
+        [Display(Name = "Home Team")]
         public int HomeTeamID { get; set; }
 
-        [Display(Name = "Away Team ID Number")]
+        [Display(Name = "Away Team")]
         public int AwayTeamID { get; set; }
 
         public string Result { get; set; }

@@ -19,7 +19,7 @@ namespace Ballpark.Models
         [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string LastName { get; set; }
 
-        [Display(Name = "Favorite Team(s)")]
+        [Display(Name = "Favorite Team")]
         public string FavTeam { get; set; }
     }
 }

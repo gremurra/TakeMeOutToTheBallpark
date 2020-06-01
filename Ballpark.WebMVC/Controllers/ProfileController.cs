@@ -19,6 +19,13 @@ namespace Ballpark.WebMVC.Controllers
             var service = new ProfileService(userID);
             var model = service.GetProfiles();
 
+            List<string> ListOfProfiles = new List<string>();
+            foreach (var prof in model)
+            {
+                ListOfProfiles.Add(prof.FullName);
+            }
+            ViewBag.VenueCount = ListOfProfiles.Count();
+
             return View(model);
         }
 

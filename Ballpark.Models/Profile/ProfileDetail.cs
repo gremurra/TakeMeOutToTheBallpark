@@ -24,7 +24,7 @@ namespace Ballpark.Models
             get { return FirstName + " " + LastName; }
         }
 
-        [Display(Name = "Favorite Team(s)")]
+        [Display(Name = "Favorite Team")]
         public string FavTeam { get; set; }
 
         [Display(Name = "Joined")]

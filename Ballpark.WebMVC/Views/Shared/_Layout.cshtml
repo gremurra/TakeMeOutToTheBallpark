@@ -32,9 +32,8 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("My Profile", "Index", "Profile")</li>
-                        <li>@Html.ActionLink("Stadium List", "Index", "Venue")</li>
-                        <li>@Html.ActionLink("Team List", "Index", "Team")</li>
-                        <li>@Html.ActionLink("My Progress", "Index", "Event")</li>
+                        <li>@Html.ActionLink("Stadiums", "Index", "Venue")</li>
+                        <li>@Html.ActionLink("Teams", "Index", "Team")</li>
 
                     }
                 </ul>

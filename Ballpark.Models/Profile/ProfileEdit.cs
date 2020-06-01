@@ -16,7 +16,7 @@ namespace Ballpark.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Favorite Teams")]
+        [Display(Name = "Favorite Team")]
         public string FavTeam { get; set; }
     }
 }
