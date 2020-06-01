@@ -15,7 +15,7 @@ namespace Ballpark.Models.Event
         [DataType(DataType.Date)]
         public DateTimeOffset DateOfGame { get; set; }
 
-        [Display(Name = "Profile ID Number")]
+        [Display(Name = "Profile")]
         public int ProfileID { get; set; }
 
         [Display(Name = "Venue ID Number")]

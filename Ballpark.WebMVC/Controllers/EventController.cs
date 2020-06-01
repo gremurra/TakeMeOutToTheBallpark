@@ -47,6 +47,7 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Create
         public ActionResult Create()
         {
+            ViewBag.ProfileID = new SelectList(_database.Profiles.ToArray().OrderBy(f => f.FirstName), "ProfileID", "FirstName");
             ViewBag.HomeTeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "TeamID", "TeamName");
             ViewBag.AwayTeamID = new SelectList(_database.Teams.ToArray().OrderBy(t => t.TeamName), "TeamID", "TeamName");
             return View();
@@ -62,11 +63,11 @@ namespace Ballpark.WebMVC.Controllers
 
             if (service.CreateEvent(model))
             {
-                TempData["SaveResult"] = "Your event was created.";
+                TempData["SaveResult"] = "Your event was successfully added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Event could not be created.");
+            ModelState.AddModelError("", "Event could not be added.");
 
 
             return View(model);
