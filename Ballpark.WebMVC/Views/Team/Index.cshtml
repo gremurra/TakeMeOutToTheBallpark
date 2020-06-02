@@ -18,20 +18,23 @@
         color: white;
     }
 
-    .teamLink:hover {
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-    }
+        .teamLink:hover {
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
 
     .tableHeader {
         font-size: 20px;
     }
 </style>
 
-<p>
-    @Html.ActionLink("Add Team", "Create")
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Add Team", "Create")
+    </p>
+}
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -63,11 +66,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.VenueName)
             </td>
-
+            @if (User.IsInRole("Admin"))
+            {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.TeamID }, new { @class = "teamLink" }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.TeamID }, new { @class = "teamLink" })
             </td>
+            }
         </tr>
     }
 

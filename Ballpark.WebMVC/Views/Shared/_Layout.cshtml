@@ -34,7 +34,10 @@
                         <li>@Html.ActionLink("My Profile", "Index", "Profile")</li>
                         <li>@Html.ActionLink("Stadiums", "Index", "Venue")</li>
                         <li>@Html.ActionLink("Teams", "Index", "Team")</li>
-
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Roles", "Index", "Role")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -51,7 +54,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-   
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

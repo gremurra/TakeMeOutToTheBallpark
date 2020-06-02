@@ -21,14 +21,15 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         //GET: Create
         public ActionResult Create()
         {
             return View();
         }
 
-
         //POST: Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(VenueCreate model)
@@ -57,6 +58,7 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit (int id)
         {
             var service = CreateVenueService();
@@ -74,6 +76,7 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VenueEdit model)
@@ -98,6 +101,7 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -107,6 +111,7 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
