@@ -29,9 +29,12 @@
     }
 </style>
 
-<p>
-        @Html.ActionLink("Add Stadium", "Create")
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Add Venue", "Create")
     </p>
+}
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -80,10 +83,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IsActive)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VenueID }, new { @class = "venueLink" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.VenueID }, new { @class = "venueLink" })
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VenueID }, new { @class = "venueLink" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VenueID }, new { @class = "venueLink" })
+                </td>
+            }
         </tr>
     }
 
