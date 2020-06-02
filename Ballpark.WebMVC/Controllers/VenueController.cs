@@ -15,8 +15,8 @@ namespace Ballpark.WebMVC.Controllers
         // GET: Venue
         public ActionResult Index()
         {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new VenueService(userID);
+            //var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService();
             var model = service.GetVenues();
             return View(model);
         }
@@ -128,8 +128,8 @@ namespace Ballpark.WebMVC.Controllers
 
         private VenueService CreateVenueService()
         {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new VenueService(userID);
+            //var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService();
             return service;
         }
     }

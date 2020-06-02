@@ -11,11 +11,11 @@ namespace Ballpark.Services
     public class VenueService
     {
 
-        private readonly Guid _userId;
+        //private readonly Guid _userId;
 
-        public VenueService(Guid userId)
+        public VenueService()
         {
-            _userId = userId;
+            //_userId = userId;
         }
 
         public bool CreateVenue(VenueCreate model)
@@ -23,7 +23,7 @@ namespace Ballpark.Services
             var entity =
                 new Venue()
                 {
-                    OwnerID = _userId,
+                    //OwnerID = _userId,
                     VenueName = model.VenueName,
                     Location = model.Location,
                     YearOpened = model.YearOpened,
@@ -45,7 +45,7 @@ namespace Ballpark.Services
                 var query =
                     ctx
                     .Venues
-                    .Where(e => e.OwnerID == _userId)
+                    //.Where(e => e.OwnerID == _userId)
                     .Select(
                         e =>
                         new VenueListItem
@@ -72,7 +72,7 @@ namespace Ballpark.Services
                 var entity =
                 ctx
                     .Venues
-                    .Single(e => e.VenueID == id && e.OwnerID == _userId);
+                    .Single(e => e.VenueID == id);
                 return
                     new VenueDetail
                     {
@@ -93,7 +93,7 @@ namespace Ballpark.Services
                 var entity =
                     ctx
                     .Venues
-                    .Single(e => e.VenueID == model.VenueID && e.OwnerID == _userId);
+                    .Single(e => e.VenueID == model.VenueID);
 
                 entity.VenueID = model.VenueID;
                 entity.VenueName = model.VenueName;
@@ -113,7 +113,7 @@ namespace Ballpark.Services
                 var entity =
                     ctx
                     .Venues
-                    .Single(e => e.VenueID == venueID && e.OwnerID == _userId);
+                    .Single(e => e.VenueID == venueID);
 
                 ctx.Venues.Remove(entity);
 

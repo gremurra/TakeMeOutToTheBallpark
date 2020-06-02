@@ -12,8 +12,8 @@ namespace Ballpark.Data
         [Key]
         public int VenueID { get; set; }
 
-        [Required]
-        public Guid OwnerID { get; set; }
+        //[Required]
+        //public Guid OwnerID { get; set; }
 
         [Required]
         public string VenueName { get; set; }
