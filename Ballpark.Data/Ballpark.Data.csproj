@@ -88,10 +88,6 @@
     <Compile Include="Migrations\202005281836243_EventUserIDMigration.Designer.cs">
       <DependentUpon>202005281836243_EventUserIDMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005291335423_UndoMigration.cs" />
-    <Compile Include="Migrations\202005291335423_UndoMigration.Designer.cs">
-      <DependentUpon>202005291335423_UndoMigration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,9 +122,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005281836243_EventUserIDMigration.resx">
       <DependentUpon>202005281836243_EventUserIDMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005291335423_UndoMigration.resx">
-      <DependentUpon>202005291335423_UndoMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
