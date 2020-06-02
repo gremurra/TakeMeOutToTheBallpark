@@ -8,6 +8,12 @@
 
 <h2>Add User Role</h2>
 
+<style>
+    input[type=text] {
+        color: black;
+    }
+</style>
+
 @using (Html.BeginForm("RoleAddToUser", "Role"))
 {
     @Html.AntiForgeryToken()

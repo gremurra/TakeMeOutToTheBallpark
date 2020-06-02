@@ -9,10 +9,13 @@ using System.Web.Mvc;
 
 namespace Ballpark.WebMVC.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
+
     public class RoleController : Controller
     {
         private ApplicationDbContext context = new ApplicationDbContext();  //gives access to database
-        // GET: Role
+                          // GET: Role
         public ActionResult Index()
         {
             return View(context.Roles.ToList());
@@ -24,6 +27,7 @@ namespace Ballpark.WebMVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection collection)
         {
             try

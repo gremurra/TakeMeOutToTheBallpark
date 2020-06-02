@@ -19,6 +19,7 @@ namespace Ballpark.WebMVC.Controllers
             return View(model);
         }
 
+        [Authorize (Roles = "Admin")]
         //GET: Create
         public ActionResult Create()
         {
