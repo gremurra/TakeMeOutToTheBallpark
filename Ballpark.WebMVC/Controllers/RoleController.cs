@@ -37,7 +37,7 @@ namespace Ballpark.WebMVC.Controllers
                     Name = collection["RoleName"]
                 });
                 context.SaveChanges();
-                ViewBag.ResultMessage = "Role created successfully !";
+                ViewBag.ResultMessage = "Role created!";
                 return View("Create");
             }
             catch
@@ -132,7 +132,7 @@ namespace Ballpark.WebMVC.Controllers
             if (manager.IsInRole(user.Id, RoleName))
             {
                 manager.RemoveFromRole(user.Id, RoleName);
-                ViewBag.ResultMessage = "Role removed from this user successfully !";
+                ViewBag.ResultMessage = "Role removed!";
             }
             else
             {
